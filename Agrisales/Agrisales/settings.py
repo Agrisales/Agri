@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -80,6 +81,13 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# adding custom user model
+AUTH_USER_MODEL = "login.User"
+
+# adding custom authentication function
+AUTHENTICATION_BACKEND = ['login.models.User',
+                          'django.contrib.auth.backends.ModelBackend']
 
 
 # Password validation
