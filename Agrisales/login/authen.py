@@ -7,8 +7,8 @@ class Myauth(BaseBackend):
     def authenticate(self, request=None, phone_number=None, password=None):
 
         try:
-            user = User.object.get(pk=phone_number)
-            login_valid = (user.phone_number == phone_number)
+            user = User.object.get(pk=int(phone_number))
+            login_valid = (user.phone_number == int(phone_number))
             pwd_valid = check_password(password, user.password)
             if login_valid and pwd_valid:
                 return user

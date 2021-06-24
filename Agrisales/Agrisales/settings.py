@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'login',
+    'home',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,8 +78,12 @@ WSGI_APPLICATION = 'Agrisales.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'farmersfirst',
+        'USER': 'admin',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
@@ -86,8 +91,7 @@ DATABASES = {
 AUTH_USER_MODEL = "login.User"
 
 # adding custom authentication function
-AUTHENTICATION_BACKEND = ['login.models.User',
-                          'django.contrib.auth.backends.ModelBackend']
+AUTHENTICATION_BACKEND = ['login.models.User', ]
 
 
 # Password validation

@@ -4,7 +4,7 @@ from django.db.models.fields import EmailField
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, user_name, email, phone_number, password=None):
+    def create_user(self, user_name, phone_number, email, password=None):
         user = self.model(
             user_name=user_name,
             phone_number=phone_number,
@@ -15,7 +15,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, user_name, email, phone_number, password):
+    def create_superuser(self, user_name, phone_number, password, email):
         user = self.create_user(
             user_name=user_name,
             password=password,
@@ -31,8 +31,8 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser):
-    phone_number = models.TextField(
-        verbose_name="Phone number", max_length=10, unique=True, primary_key=True)
+    phone_number = models.BigIntegerField(
+        verbose_name="Phone number",  unique=True, primary_key=True)
     user_name = models.CharField(verbose_name="User name", max_length=64)
     date_joined = models.DateTimeField(
         verbose_name="Date joined", auto_now_add=True)
@@ -50,7 +50,7 @@ class User(AbstractBaseUser):
     object = UserManager()
 
     def __str__(self):
-        return f"{self.phone_number}     {self.user_name}"
+        return "{} \t {}".format(self.phone_number, self.user_name)
 
     def has_perm(self, perm, obj=None):
         return self.is_admin

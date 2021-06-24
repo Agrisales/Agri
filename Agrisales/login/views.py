@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import User, UserManager
 from .authen import Myauth
+from django.contrib import auth
 
 # Create your views here.
 
@@ -11,12 +12,12 @@ def login(request):
         phone_number = request.POST["phone_number"]
         password = request.POST["password"]
         author = Myauth()
-        author.authenticate(
+        user = author.authenticate(
             phone_number=phone_number, password=password)
-        if author:
-            return render(request, 'login/index.html', {
-                "message": "Logged in"
-            })
+        if user is not None:
+            auth.login(request, user)
+            redirect_path = f'/{user.user_name}'
+            return redirect(redirect_path)
         else:
             return render(request, 'login/index.html', {
                 "message": "Wrong Credantials"
@@ -37,8 +38,6 @@ def signup(request):
             user = User.object.create_user(user_name=user__name, phone_number=phone__number,
                                            email=emai_l, password=pass_word)
 
-            return render(request, 'login/index.html', {
-                "message": "Signed up"
-            })
+            return render(request, 'login/index.html')
     else:
         return render(request, 'login/index.html')
