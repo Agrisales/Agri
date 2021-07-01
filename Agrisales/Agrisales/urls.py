@@ -17,8 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('login/', include('login.urls')),
-    path('admin/', admin.site.urls),
+    path('login', include('login.urls')),
+    path('admin', admin.site.urls),
     path('', include('home.urls')),
     path('<str:username>/cart', include('cart.urls')),
 ]
