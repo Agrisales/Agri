@@ -23,3 +23,8 @@ def userprofile(request, username):
         'datejoined': user.date_joined,
         'email': user.email
     })
+
+def cart(request,username):
+    return render(request,'home/cart_layout.html',{
+        'username':username
+    })
