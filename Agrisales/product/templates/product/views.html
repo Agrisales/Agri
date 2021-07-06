@@ -1,0 +1,259 @@
+{%load static%}
+<!DOCTYPE html>
+<head>
+    <title>FarmersFirst-Product</title>
+    <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous">
+    </script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap" rel="stylesheet" />
+
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="imagelog.png" type="image/x-icon" />
+
+  <!--Gliders Carousel-->
+  <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css" />
+  <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css" />
+
+  <!-- Carousel -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.min.css
+">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <!-- Custom StyleSheet -->
+  <link rel="stylesheet" href="{% static 'home/css/styles.css' %}" />
+</head>
+<body>
+    <header id="header" class="header">
+        <div class="navigation">
+          <div class="container">
+            <nav class="nav">
+              <div class="nav__hamburger">
+                <i class="fa fa-bars" style="color:black" aria-hidden="true"></i>
+              </div>
+    
+              <div class="nav__logo">
+                <a href="/" class="scroll-link"> 
+                <div class="texty">
+                  FARMERS FIRST
+                </div>
+                </a>
+              </div>
+    
+              <div class="nav__menu">
+                <div class="menu__top">
+                  <span class="nav__category">FARMERS FIRST</span>
+                  <a href="#" class="close__toggle">
+                    <i class="fa fa-times" style="color:black;"aria-hidden="true"></i>
+                  </a>
+                </div>
+                <ul class="nav__list">
+                  <li class="nav__item">
+                    <a href="#header" class="nav__link scroll-link">Home</a>
+                  </li>
+                  <li class="nav__item">
+                    <a href="#category" class="nav__link scroll-link">Category</a>
+                  </li>
+                  <li class="nav__item">
+                    <a href="#news" class="nav__link scroll-link">Blog</a>
+                  </li>
+                  <li class="nav__item">
+                    <a href="#contact" class="nav__link scroll-link">Contact</a>
+                  </li>
+                </ul>
+              </div>
+    
+              <div class="nav__icons">
+                {% if username%}
+                <a class="icon__item"  style="border:none; background-color: white; " href='{{username}}/userprofile' >{{username}}</a>
+                <a href="#" class="icon__item">
+            
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </a>
+
+                <a href="{{username}}/cart" class="icon__item">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    <span id="cart__total">0</span>
+                </a>
+                {%else%}
+                <a href="/login" class="icon__item">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                </a>
+                <a href="#" class="icon__item">
+                            
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </a>
+                {%endif %}
+                
+              </div>
+            </nav>
+          </div>
+        </div>
+        <div class="container2">
+        <nav class="nav2">
+        <form class="example" action="#" style="margin:auto;max-width:400px">
+      <input type="text" placeholder="Search.." name="search" action = '/product'>
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+        </nav>
+        <div id="google_translate_element"></div>
+    
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+    </script>
+    
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+         
+    </header>
+    <!-- Main -->
+  <main id="main">
+    <div class="container">
+      <br><br>
+
+    <!-- Collection -->
+    <section class="section latest__products" id="latest">
+      <section id="collection" class="section collection">
+        <div class="collection__container" data-aos="fade-up" data-aos-duration="1200">
+          <div class="collection__box">
+            <div class="img__container">
+            <script
+                    src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_ta6fw8qq.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+            </div>
+            <div class="collection__content">
+              <div class="collection__data">
+                <span>Start super fresh !!!</span>
+                <h1>SEEDS</h1>
+                <a href="#shop">SHOP NOW</a>
+              </div>
+            </div>
+          </div>
+          <div class="collection__box">
+            <div class="img__container">
+              <lottie-player class="collection_02" src="https://assets9.lottiefiles.com/private_files/lf30_uMKwX0.json"  background="transparent"  speed="0.25"  style="width: 250px; height: 250px;"  loop  autoplay></lottie-player>
+            </div>
+            <div class="collection__content">
+                <div class="collection__data">
+                    <span>Enhance the quality !!!</span>
+                    <h1>FERTILIZERS</h1>
+                    <a href="#">SHOP NOW</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <section id="collection" class="section collection">
+            <div class="collection__container" data-aos="fade-up" data-aos-duration="1200">
+              <div class="collection__box">
+                <div class="img__container">
+                  <lottie-player class="collection_01" src="https://assets5.lottiefiles.com/packages/lf20_na186we7.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+                </div>
+                <div class="collection__content">
+                  <div class="collection__data">
+                    <span>Enhance the quality !!!</span>
+                    <h1>MANURES</h1>
+                    <a href="#shop">SHOP NOW</a>
+                  </div>
+                </div>
+              </div>
+              <div class="collection__box">
+                <div class="img__container">
+                  <lottie-player class="collection_01" src="https://assets9.lottiefiles.com/packages/lf20_q5lxdkxu.json" background="transparent" speed="1" style="width:250px;height:250px;" autoplay loop></lottie-player>
+                </div>
+                <div class="collection__content">
+                  <div class="collection__data">
+                        <span>Let the plant alone grow !!!</span>
+                        <h1>PESTICIDES</h1>
+                        <a href="#">SHOP NOW</a>
+                  </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Footer -->
+  <footer id="footer" class="section footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer-top__box">
+          <h3>FOR ADDITIONAL SUPPORT!</h3>
+         <a class="reacher" href="Contact/contact.html"> Reach us Anytime!!</a>
+        </div>
+        <div class="footer-top__box">
+          <h3>INFORMATION</h3>
+          <a href="#">About Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Site Map</a>
+        </div>
+        <div class="footer-top__box">
+          <h3>MY ACCOUNT</h3>
+          <a href="#">My Account</a>
+          <a href="#">Order History</a>
+          <a href="#">Wish List</a>
+          <a href="#">Newsletter</a>
+          <a href="#">Returns</a>
+        </div>
+        <div class="footer-top__box">
+          <h3>CONTACT US</h3>
+            <div>
+                <span>
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                </span>
+                KUMARAGURU COLLEGE OF TECHNOLOGY, TAMILNADU ,INDIA.
+          </div>
+          <div>
+            <span>
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+            </span>
+            Agrisales@outlook.com
+          </div>
+          <div>
+            <span>
+              <i class='fas fa-phone-alt'></i>
+            </span>
+            00000001
+          </div>
+          <div>
+            <span>
+              <i class="fa fa-paper-plane-o"></i>
+            </span>
+            KUMARAGURU COLLEGE OF TECHNOLOGY, COIMBATORE.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer-bottom__box">
+
+      </div>
+      <div class="footer-bottom__box">
+
+      </div>
+    </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+                    <!-- Glide Carousel Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
+    <!-- Animate On Scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="{% static 'home/js/products.js' %}"></script>
+    <script src="{% static 'home/js/index.js' %}"></script>
+    <script src="{% static 'home/js/slider.js' %}"></script>
+
+    
+    
+</body>
