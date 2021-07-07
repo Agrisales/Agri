@@ -4,10 +4,7 @@ from . models import Product
 
 
 def display(request,username = None):
-    if username == None:
-        return render(request,'product/views.html')
-    else:
-        return render(request,'product/views.html',{
+    return render(request,'product/views.html',{
             'username':username
         })
 
@@ -17,7 +14,10 @@ def search(request,username = None):
         categary = ["seeds","fertilizers","fertilisers","pestisides","manures"]
         search_value = request.POST.search
         if search_value.lower() in categary:
-            url = f"product/{search_value}"
+            if username != None:
+                url = f"{username}/product/{search_value}"
+            else:
+                url = f"product/{search_value}"
             return render(request,url,{
                 'username':username,
             })

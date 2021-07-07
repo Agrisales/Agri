@@ -4,5 +4,7 @@ from . import views
 urlpatterns = [
     path('/seeds',views.seeds,name= "seeds"),
     path('/seeds/<str:seedname>', views.seeds, name="seedview"),
-    path('',views.display,name="display")
+    path('',views.display,name="display"),
+    path('/search',views.search, name="search"),
+ 
 ]

@@ -6,5 +6,6 @@ class Product(models.Model):
     imagelink = models.URLField(verbose_name="Image link")
     price = models.IntegerField(verbose_name="Price")
     description = models.TextField(verbose_name="Description")
-    category = models.TextField(verbose_name="category")
+    category = models.TextField(verbose_name="category",max_length= 255)
+    rating = models.IntegerField(verbose_name="Ratings")
     
