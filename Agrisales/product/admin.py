@@ -5,5 +5,5 @@ from import_export.admin import ImportExportModelAdmin
 
 @admin.register(models.Product)
 
-class Product_add(ImportExportModelAdmin):
+class ViewAdmin(ImportExportModelAdmin):
     pass
