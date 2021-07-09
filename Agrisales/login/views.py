@@ -34,9 +34,11 @@ def signup(request):
         emai_l = request.POST["email"]
         pass_word = request.POST["password"]
         pswd_check = request.POST["pswd_check"]
+        pincode = request.POST["pincode"]
+        address = request.POST["address"]
         if pass_word == pswd_check:
             user = User.object.create_user(user_name=user__name, phone_number=phone__number,
-                                           email=emai_l, password=pass_word)
+                                           email=emai_l, password=pass_word,pincode=pincode,address=address)
 
             return render(request, 'login/index.html')
     else:

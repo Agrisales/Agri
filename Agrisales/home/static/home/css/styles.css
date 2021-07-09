@@ -330,7 +330,10 @@ Navigation Media Query
 Hero Area
 ======================
 */
-
+#seedslist{
+  display:flex !important;
+  flex-direction: column !important;
+}
 .hero,
 .hero .glide__slides {
   background-color: var(--primaryColor);

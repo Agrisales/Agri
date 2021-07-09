@@ -40,16 +40,9 @@
                         <a href="#" class="social-icon">
                             <i class="fab fa-google"></i>
                         </a>
-                        {% if message == "Logged in"%}
-                        logged in
-                        {%endif%}
                         {% if message == "Wrong Credantials"%}
                         wrong Credantials
                         {%endif%}
-                        {%if message == "Signed up"%}
-                        signed up
-                        {%endif%}
-
                     </div>
                 </form>
 
@@ -68,6 +61,14 @@
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
                         <input type="email" name="email" placeholder="Email" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-address-card"></i>
+                        <input type="text" name="address" placeholder="Address" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-location-arrow"></i>
+                        <input type="text" name="pincode" placeholder="Pincode" />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>

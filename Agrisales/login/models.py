@@ -1,27 +1,30 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-from django.db.models.fields import EmailField
+from django.db.models.fields import EmailField, TextField
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, user_name, phone_number, email, password=None):
+    def create_user(self, user_name, phone_number, email,address,pincode, password=None):
         user = self.model(
             user_name=user_name,
             phone_number=phone_number,
-            email=email
+            email=email,
+            address = address,
+            pincode = pincode
         )
 
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, user_name, phone_number, password, email):
+    def create_superuser(self, user_name, phone_number, password, email,address,pincode):
         user = self.create_user(
             user_name=user_name,
             password=password,
             phone_number=phone_number,
-            email=email
-        )
+            email=email,
+            address = address,
+            pincode = pincode   )
 
         user.is_admin = True
         user.is_staff = True
@@ -38,14 +41,16 @@ class User(AbstractBaseUser):
         verbose_name="Date joined", auto_now_add=True)
     last_login = models.DateTimeField(
         verbose_name="Last login", auto_now_add=True)
-    email = EmailField(verbose_name="email")
+    email = models.EmailField(verbose_name="email")
+    address = models.TextField(verbose_name="address")
+    pincode = models.CharField(verbose_name="pincode",max_length=6)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
 
     USERNAME_FIELD = "phone_number"
-    REQUIRED_FIELDS = ["user_name", "password", "email"]
+    REQUIRED_FIELDS = ["user_name", "password", "email","pincode","address"]
 
     object = UserManager()
 

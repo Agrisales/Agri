@@ -1,13 +1,12 @@
 {%extends layout %}
 {%block product %}
-
 <section class="section latest__products" id="latest">
-    <div class="title__container">
-      <div class="section__title active" data-id="Latest Products">
-        <span class="dot"></span>
-        <h1 class="primary__title">Latest Products</h1>
-      </div>
+  <div class="title__container">
+    <div class="section__title active" data-id="Latest Products">
+      <span class="dot"></span>
+      <h1 class="primary__title"></h1>
     </div>
+  </div>
     {%for product in products%}
     <div class="container" data-aos="fade-up" data-aos-duration="1200">
       <div class="glide" id="glide_2">
@@ -56,6 +55,6 @@
       </div>
     </div>
     {%endfor%}
-  </section>
+</section>
 
 {%endblock%}

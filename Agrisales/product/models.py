@@ -9,3 +9,6 @@ class Product(models.Model):
     category = models.TextField(verbose_name="category",max_length= 255)
     rating = models.IntegerField(verbose_name="Ratings")
     
+
+    def __str__(self):
+        return self.name

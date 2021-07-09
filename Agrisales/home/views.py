@@ -5,7 +5,11 @@ from login.models import User
 
 
 def home(request):
-    return render(request, 'home/home.html')
+    if request.user == None:
+        return render(request, 'home/home.html')
+    else:
+        logout(request)
+        return render(request, 'home/home.html')
 
 
 def userhome(request, username):
@@ -18,10 +22,12 @@ def userprofile(request, username):
     current_user = request.user
     user = User.object.get(pk=current_user.phone_number)
     return render(request, 'home/userprofile.html', {
+        'current_user':current_user,
         'username': user.user_name,
         'phonenumber': user.phone_number,
         'datejoined': user.date_joined,
-        'email': user.email
+        'email': user.email,
+        'address': user.address,
     })
 
 def cart(request,username):
