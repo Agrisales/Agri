@@ -33,21 +33,29 @@
                                 <a href="cart.html"><button type="submit" class="product__btn">Add To Cart</button></a>
                             </div>
                             <ul>
+                                {%if username%}
                                 <li>
-                                    <a data-tip="Quick View" data-place="left" href="product.html">
-                                        <i class="fa fa-eye" aria-hidden="true"></i>
-                                    </a>
+                                  <a data-tip="Quick View" data-place="left" href="/{{username}}/product/view/{{fertilizer.id}}">
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                  </a>
                                 </li>
                                 <li>
-                                    <a data-tip="Add To Wishlist" data-place="left" href="#">
-                                        <i class="fa fa-heart" aria-hidden="true"></i>
-                                    </a>
+                                  <a data-tip="Add To Wishlist" data-place="left" href="#">
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                  </a>
                                 </li>
                                 <li>
-                                    <a data-tip="Add To Compare" data-place="left" href="#">
-                                        <i class='fas fa-check-double'></i>
+                                  <a data-tip="Add To Compare" data-place="left" href="#">
+                                    <i class='fas fa-check-double'></i>
+                                  </a>
+                                  {%else%}
+                                  <li>
+                                    <a data-tip="Quick View" data-place="left" href="/product/view/{{fertilizer.id}}">
+                                      <i class="fa fa-eye" aria-hidden="true"></i>
                                     </a>
-                                </li>
+                                  </li>
+                                  <li>
+                                  {%endif%}
                             </ul>
                         </div>
                     </li>

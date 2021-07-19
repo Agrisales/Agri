@@ -32,8 +32,9 @@
                   <a href="cart.html"><button type="submit" class="product__btn">Add To Cart</button></a>
                 </div>
                 <ul>
+                  {%if username%}
                   <li>
-                    <a data-tip="Quick View" data-place="left" href="product.html">
+                    <a data-tip="Quick View" data-place="left" href="/{{username}}/product/view/{{product.id}}">
                       <i class="fa fa-eye" aria-hidden="true"></i>
                     </a>
                   </li>
@@ -46,6 +47,14 @@
                     <a data-tip="Add To Compare" data-place="left" href="#">
                       <i class='fas fa-check-double'></i>
                     </a>
+                    {%else%}
+                    <li>
+                      <a data-tip="Quick View" data-place="left" href="/product/view/{{product.id}}">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li>
+                    {%endif%}
                   </li>
                 </ul>
               </div>
