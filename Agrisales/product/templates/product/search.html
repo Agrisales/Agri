@@ -1,4 +1,4 @@
-{%extends layout %}
+{%extends 'product/layout.html' %}
 {%block product %}
 <section class="section latest__products" id="latest">
   <div class="title__container">
@@ -8,17 +8,17 @@
     </div>
   </div>
     {%for product in products%}
-    <div class="container" data-aos="fade-up" data-aos-duration="1200">
+    <div class="container">
       <div class="glide" id="glide_2">
         <div class="glide__track" data-glide-el="track">
-          <ul class="glide__slides latest-center">
-            <li class="glide__slide">
-              <div class="product">
+          <ul class="glide__slides latest-center" style="display: flex; flex-wrap: wrap;">
+            <li class="glide__slide"  style="width: 25%;">
+              <div class="product"  style="padding:20px;">
                 <div class="product__header">
                   <img src="{{product.imagelink}}" alt="product">
                 </div>
                 <div class="product__footer">
-                  <h3>{{product.name}}</h3>
+                  <h3>{{product.id}}</h3>
                   <div class="rating">
                     <i class="fa fa-star" aria-hidden="true"></i>
                     <i class="fa fa-star" aria-hidden="true"></i>

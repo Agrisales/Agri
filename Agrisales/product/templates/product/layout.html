@@ -101,16 +101,18 @@
     <div class="container2">
     <nav class="nav2">
       {%if username%}
-      <form class="example" action="{{username}}/product/search " method = "POST"style="margin:auto;max-width:400px">
-        {%csrf_token%}
+      <form class="example" action="/product/search" method = "POST"style="margin:auto;max-width:400px">
+        {% csrf_token %}
         <input type="text" placeholder="Search.." name="search" >
         <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+      {%else%}
+        <form class="example" action="/product/search " method = "POST"style="margin:auto;max-width:400px">
+          {% csrf_token %}
+          <input type="text" placeholder="Search.." name="search" >
+          <button type="submit"><i class="fa fa-search"></i></button>
         </form>
       {%endif%}
-    <form class="example" action="/product/search " method = "POST"style="margin:auto;max-width:400px">
-  <input type="text" placeholder="Search.." name="search" >
-  <button type="submit"><i class="fa fa-search"></i></button>
-  </form>
     </nav>
     <div id="google_translate_element"></div>
   

@@ -84,10 +84,19 @@
     </div>
     <div class="container2">
     <nav class="nav2">
-    <form class="example" action="#" style="margin:auto;max-width:400px">
-  <input type="text" placeholder="Search.." name="search">
+      {%if username%}
+      <form class="example" action="{{username}}/product/search" method = "POST"style="margin:auto;max-width:400px">
+        {% csrf_token %}
+        <input type="text" placeholder="Search.." name="search" >
+        <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      {%else%}
+    <form class="example" action="/product/search " method = "POST"style="margin:auto;max-width:400px">
+      {% csrf_token %}
+  <input type="text" placeholder="Search.." name="search" >
   <button type="submit"><i class="fa fa-search"></i></button>
-</form>
+  </form>
+  {%endif%}
     </nav>
     <div id="google_translate_element"></div>
 
@@ -179,7 +188,7 @@ function googleTranslateElementInit() {
               <div class="collection__data">
                 <span>Start super fresh !!!</span>
                 <h1>SEEDS</h1>
-                <a href="#shop">SHOP NOW</a>
+                <a href="/product/seeds">SHOP NOW</a>
               </div>
             </div>
           </div>
@@ -191,7 +200,7 @@ function googleTranslateElementInit() {
               <div class="collection__data">
                 <span>Enhance the quality !!!</span>
                 <h1>FERTILIZERS</h1>
-                <a href="#">SHOP NOW</a>
+                <a href="/product/fertilzers">SHOP NOW</a>
               </div>
             </div>
           </div>
@@ -208,7 +217,7 @@ function googleTranslateElementInit() {
                   <div class="collection__data">
                     <span>Enhance the quality !!!</span>
                     <h1>MANURES</h1>
-                    <a href="#shop">SHOP NOW</a>
+                    <a href="/product/manures">SHOP NOW</a>
                   </div>
                 </div>
               </div>
@@ -220,7 +229,7 @@ function googleTranslateElementInit() {
                   <div class="collection__data">
                     <span>Let the plant alone grow !!!</span>
                     <h1>PESTICIDES</h1>
-                    <a href="#">SHOP NOW</a>
+                    <a href="/product/pesticides">SHOP NOW</a>
                   </div>
                 </div>
               </div>

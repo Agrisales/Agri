@@ -12,17 +12,15 @@ def display(request,username = None):
 def search(request,username = None):
     if request.method == "POST":
         categary = ["seeds", "seed","fertilizers","fertilisers","pestisides","manures","fertilzer","fertiliser","pestiside","manure"]
-        search_value = request.POST.search
+        search_value = request.POST['search']
         if search_value.lower() in categary:
             if username != None:
-                url = f"{username}/product/{search_value}"
+                url = f"{username}product/{search_value}"
             else:
-                url = f"product/{search_value}"
-            return redirect(request,url,{
-                'username':username,
-            })
+                url = f"/product/{search_value}"
+            return redirect(url)
 
-        products = Product.objects.all().filter(name = search_value.lower())
+        products = Product.objects.all().filter(id = search_value.lower())
         return render(request,'product/search.html',{
             'products':products
         })
