@@ -13,6 +13,15 @@ def home(request):
 
 
 def userhome(request, username):
+    current_user = request.user
+    user = User.object.get(pk=current_user.phone_number)
+    id = user.is_admin
+    if id:
+        return render(request, 'home/userhome.html', {
+        'username': username,
+        'admin':True
+        })
+
     return render(request, 'home/userhome.html', {
         'username': username
     })

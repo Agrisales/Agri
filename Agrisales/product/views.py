@@ -1,5 +1,6 @@
 from django.shortcuts import render ,redirect
 from . models import Product
+from login.models import User
 # Create your views here.
 
 
@@ -63,7 +64,7 @@ def fertilizers(request,username = None ):
             })
 
 
-def pestisides(request,username = None):
+def pesticides(request,username = None):
     if username :
         pestisides = Product.objects.all().filter(category = 'pestisides')
         return render(request, 'product/pestisides.html',{
@@ -101,3 +102,10 @@ def view(request,productname,username=None):
         return render(request,'product/view_product.html',{
         'product':product
     })
+
+def order(request,username=None):
+    if username:
+        current_user = request.user
+        user = User.object.get(pk=current_user.phone_number)
+        if user.is_admin:
+            return render(request,'product/orders.html', )
