@@ -1,6 +1,7 @@
 from django.db import models
 
 
+
 class Product(models.Model):
     id = models.CharField(verbose_name="Product name",primary_key=True,max_length=255)
     imagelink = models.TextField(verbose_name="Image link")
@@ -14,9 +15,3 @@ class Product(models.Model):
         return self.id
 
 
-class Order(models.Model):
-    product_name = models.TextField(verbose_name="Product Name",max_length=255)
-    quantity = models.IntegerField(verbose_name="Quantity")
-    price = models.IntegerField(verbose_name="price")
-    user = models.TextField(verbose_name="User")
-    

@@ -62,3 +62,19 @@ class User(AbstractBaseUser):
 
     def has_module_perms(self, app_label):
         return True
+
+
+class Order(models.Model):
+    user = models.TextField(verbose_name="User name")
+    product_name = models.TextField(verbose_name="Product Name",max_length=255)
+    quantity = models.IntegerField(verbose_name="Quantity")
+    price = models.IntegerField(verbose_name="price")
+    date_ordered = models.DateTimeField(verbose_name="Date ordered",auto_now_add=True)
+    date_required = models.DateField(verbose_name="Date required")
+    address = models.TextField(verbose_name="Address")
+
+    def __str__(self):
+        return f'{self.date_required}  {self.product_name}  {self.quantity}'
+
+
+    

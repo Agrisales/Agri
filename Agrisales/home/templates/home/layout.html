@@ -171,7 +171,74 @@ function googleTranslateElementInit() {
       <br><br>
 
     <!-- Collection -->
+    {%if username%}
     <section class="section latest__products" id="latest">
+      <div class="title__container">
+        <div class="section__title active" data-id="Latest Products">
+          <span class="dot"></span>
+          <h1 class="primary__title">Exclusively for Farmers</h1>
+        </div>
+      </div>   
+      <section id="collection" class="section collection">
+        <div class="collection__container" data-aos="fade-up" data-aos-duration="1200">
+          <div class="collection__box">
+            <div class="img__container">
+            <script
+                    src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_ta6fw8qq.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+            </div>
+            <div class="collection__content">
+              <div class="collection__data">
+                <span>Start super fresh !!!</span>
+                <h1>SEEDS</h1>
+                <a href="{{username}}/product/seeds">SHOP NOW</a>
+              </div>
+            </div>
+          </div>
+          <div class="collection__box">
+            <div class="img__container">
+              <lottie-player class="collection_02" src="https://assets9.lottiefiles.com/private_files/lf30_uMKwX0.json"  background="transparent"  speed="0.25"  style="width: 250px; height: 250px;"  loop  autoplay></lottie-player>
+            </div>
+            <div class="collection__content">
+              <div class="collection__data">
+                <span>Enhance the quality !!!</span>
+                <h1>FERTILIZERS</h1>
+                <a href="{{username}}/product/fertilizers">SHOP NOW</a>
+              </div>
+            </div>
+          </div>
+           </section>
+
+
+           <section id="collection" class="section collection">
+            <div class="collection__container" data-aos="fade-up" data-aos-duration="1200">
+              <div class="collection__box">
+                <div class="img__container">
+                  <lottie-player class="collection_01" src="https://assets5.lottiefiles.com/packages/lf20_na186we7.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+                </div>
+                <div class="collection__content">
+                  <div class="collection__data">
+                    <span>Enhance the quality !!!</span>
+                    <h1>MANURES</h1>
+                    <a href="{{username}}/product/manures">SHOP NOW</a>
+                  </div>
+                </div>
+              </div>
+              <div class="collection__box">
+                <div class="img__container">
+                  <lottie-player class="collection_01" src="https://assets9.lottiefiles.com/packages/lf20_q5lxdkxu.json" background="transparent" speed="1" style="width:250px;height:250px;" autoplay loop></lottie-player>
+                </div>
+                <div class="collection__content">
+                  <div class="collection__data">
+                    <span>Let the plant alone grow !!!</span>
+                    <h1>PESTICIDES</h1>
+                    <a href="{{username}}/product/pesticides">SHOP NOW</a>
+                  </div>
+                </div>
+              </div>
+               </section>
+    {%endif%}
+        <section class="section latest__products" id="latest">
       <div class="title__container">
         <div class="section__title active" data-id="Latest Products">
           <span class="dot"></span>

@@ -22,6 +22,7 @@ urlpatterns = [
     path('product',include('product.urls')),
     path('products',include('product.urls')),
     path('<str:username>/product',include('product.urls')), 
+    path('<str:username>/products',include('product.urls')), 
     path('', include('home.urls')),
    
 ]
