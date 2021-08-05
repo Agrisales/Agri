@@ -10,5 +10,6 @@ urlpatterns = [
     path('/manures',views.manures,name= "manures"),
     path('/view/<str:productname>',views.view, name="view"),
     path('/<str:productname>/confirm_order',views.confirm_order, name = "confirm order"),
-    path('/<str:productname>/confirmed',views.confirmed,name="confirmed")
+    path('/<str:productname>/confirmed',views.confirmed,name="confirmed"),
+    path('/vieworders',views.vieworders,name = "vieworder")
 ]

@@ -2,6 +2,7 @@ from django.shortcuts import render ,redirect
 from . models import Product
 from login.models import User,Order
 from django.http import HttpResponse
+import datetime
 # Create your views here.
 
 
@@ -162,4 +163,14 @@ def confirmed(request,productname,username=None):
             'username':username
         })
 
-        
+
+def vieworders(request,username=None):
+    today = datetime.date.today()
+    orders = Order.objects.all()
+    for order in orders:
+        if order.date_required < today:
+            order.delete()
+    return render(request,'product/view_orders.html',{
+        'username' : username,
+        'orders' : orders
+    })
