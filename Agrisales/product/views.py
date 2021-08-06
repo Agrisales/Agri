@@ -131,6 +131,7 @@ def confirm_order(request,productname,username= None):
     address = address.split(',')
     if username:    
         return render(request,'product/confirm_order.html',{
+            'username':username,
             'name' : name,
             'productname' : productname,
             'price' : price,
