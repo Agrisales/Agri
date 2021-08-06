@@ -15,3 +15,9 @@ class Product(models.Model):
         return self.id
 
 
+class Cart(models.Model):
+    user_phonenumber = models.TextField(verbose_name="phone_number") 
+    productname = models.TextField(verbose_name="productname")
+    quantity = models.TextField(verbose_name="quantity",default='1')
+    price = models.IntegerField(verbose_name="price",default=00)
+

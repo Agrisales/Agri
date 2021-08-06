@@ -1,6 +1,8 @@
+
 from django.shortcuts import redirect, render
 from django.contrib.auth import logout
 from login.models import User
+from product.models import Cart ,Product
 # Create your views here.
 
 
@@ -39,7 +41,22 @@ def userprofile(request, username):
         'address': user.address,
     })
 
-def cart(request,username):
-    return render(request,'home/cart_layout.html',{
-        'username':username
-    })
+def cart(request,username,productname = None):
+    if request.method == 'POST' and productname:
+        user = request.user
+        phone_number = user.phone_number
+        product=Product.objects.get(pk = productname)
+        quantity = request.POST['quantity']
+        price = product.price
+        Cart.objects.create(user_phonenumber=phone_number,productname=productname,quantity=quantity,price=price)
+        url = f'/{username}/cart'
+        return redirect(url)
+    else:
+        user = request.user
+        items = Cart.objects.all().filter( user_phonenumber = user.phone_number )
+
+        return render(request,'home/cart_layout.html',{
+            'username':username,
+            'items':items,
+            "phone_number":user.phone_number
+        })

@@ -108,201 +108,56 @@
                             <table width="100%" class="table">
                                 <thead>
                                     <tr>
-                                        <th>PRODUCT</th>
-                                        <th>NAME</th>
+                                        <th>PRODUCT NAME</th>
                                         <th>UNIT PRICE</th>
                                         <th>QUANTITY</th>
-                                        <th>TOTAL</th>
+                                        <th>PHONE NUMBER</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="product__thumbnail">
-                                            <a href="#">
-                                                <img src="{% static 'home/images/products/iPhone/seeds_ref_2.jpg' %}" alt="">
-                                            </a>
-                                        </td>
+                                        {%for item in items %}
                                         <td class="product__name">
-                                            <a href="#">Burpee's Annual</a>
+                                            <a href="/{{username}}/product/view/{{item.productname}}">{{item.productname}}</a>
                                             <br><br>
-                                            <small>Corn/ Tomato</small>
                                         </td>
                                         <td class="product__price">
                                             <div class="price">
-                                                <span class="new__price">₹ 250.99</span>
+                                                <span class="new__price">₹ {{item.price}}</span>
                                             </div>
                                         </td>
                                         <td class="product__quantity">
                                             <div class="input-counter">
                                                 <div>
-                                                    <span class="minus-btn">
-                                                        <i class="fa fa-minus"></i>
-                                                    </span>
-                                                    <input type="text" min="1" value="1" max="10" class="counter-btn">
-                                                    <span class="plus-btn">
-                                                        <i class="fa fa-plus"></i>
-                                                    </span>
+                                                    <span class="new__price">{{item.quantity}}</span>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="product__subtotal">
                                             <div class="price">
-                                                <span class="new__price">₹ 250.99</span>
+                                                <span class="new__price">{{phone_number}}</span>
                                             </div>
-                                            <a href="#" class="remove__cart-item">
-                                                <i class='fas fa-trash-alt'></i>
+                                                
                                             </a>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class="product__thumbnail">
-                                            <a href="#">
-                                                <img src="{% static 'home/images/products/sumsung/fert_ref_1.jpg' %}" alt="">
-                                            </a>
-                                        </td>
-                                        <td class="product__name">
-                                            <a href="#">Plant it Earth</a>
-                                            <br><br>
-                                            <small>Coconut</small>
-                                        </td>
-                                        <td class="product__price">
-                                            <div class="price">
-                                                <span class="new__price">₹ 250.99</span>
-                                            </div>
-                                        </td>
-                                        <td class="product__quantity">
-                                            <div class="input-counter">
-                                                <div>
-                                                    <i class="fa fa-minus"></i>
-                                                    </span>
-                                                    <input type="text" min="1" value="1" max="10" class="counter-btn">
-                                                    <span class="plus-btn">
-                                                        <i class="fa fa-plus"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="product__subtotal">
-                                            <div class="price">
-                                                <span class="new__price">₹ 250.99</span>
-                                            </div>
-                                            <a href="#" class="remove__cart-item">
-                                                <i class='fas fa-trash-alt'></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="product__thumbnail">
-                                            <a href="#">
-                                                <img src="{% static 'home/images/products/sumsung/pest_ref_2.jpg' %}" alt="">
-                                            </a>
-                                        </td>
-                                        <td class="product__name">
-                                            <a href="#">Killon</a>
-                                            <br><br>
-                                            <small>Pesticide</small>
-                                        </td>
-                                        <td class="product__price">
-                                            <div class="price">
-                                                <span class="new__price">₹ 250.99</span>
-                                            </div>
-                                        </td>
-                                        <td class="product__quantity">
-                                            <div class="input-counter">
-                                                <div>
-                                                    <span class="minus-btn">
-                                                        <i class='fa fa-minus'></i>
-                                                    </span>
-                                                    <input type="text" min="1" value="1" max="10" class="counter-btn">
-                                                    <span class="plus-btn">
-                                                        <i class='fa fa-plus'></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="product__subtotal">
-                                            <div class="price">
-                                                <span class="new__price">₹ 250.99</span>
-                                            </div>
-                                            <a href="#" class="remove__cart-item">
-                                                <i class='fas fa-trash-alt'></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="product__thumbnail">
-                                            <a href="#">
-                                                <img src="{% static 'home/images/products/iPhone/seeds_ref_1.jpg' %}" alt="">
-                                            </a>
-                                        </td>
-                                        <td class="product__name">
-                                            <a href="#">Card Seed Co</a>
-                                            <br><br>
-                                            <small>Tomatoes</small>
-                                        </td>
-                                        <td class="product__price">
-                                            <div class="price">
-                                                <span class="new__price">₹ 250.99</span>
-                                            </div>
-                                        </td>
-                                        <td class="product__quantity">
-                                            <div class="input-counter">
-                                                <div>
-                                                    <span class="minus-btn">
-                                                        <i class='fa fa-minus'></i>
-                                                    </span>
-                                                    <input type="text" min="1" value="1" max="10" class="counter-btn">
-                                                    <span class="plus-btn">
-                                                        <i class='fa fa-plus'></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="product__subtotal">
-                                            <div class="price">
-                                                <span class="new__price">₹ 250.99</span>
-                                            </div>
-                                            <a href="#" class="remove__cart-item">
-                                                <i class='fas fa-trash-alt'></i>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    {%endfor%}
                                 </tbody>
                             </table>
                         </div>
 
                         <div class="cart-btns">
                             <div class="continue__shopping">
-                                <a href="index.html">Continue Shopping</a>
-                            </div>
-                            <div class="check__shipping">
-                                <input type="checkbox">
-                                <span>Shipping(+₹7)</span>
+                                <a href="/{{username}}/product">Continue Shopping</a>
                             </div>
                         </div>
+                        </form>
+                        </div>
+                        </div>
+                        </section>
+                        </main>
 
-                        <div class="cart__totals">
-                            <h3>Cart Totals</h3>
-                            <ul>
-                                <li>
-                                    Subtotal
-                                    <span class="new__price">₹ 250.99</span>
-                                </li>
-                                <li>
-                                    Shipping
-                                    <span>₹0</span>
-                                </li>
-                                <li>
-                                    Total
-                                    <span class="new__price">₹ 250.99</span>
-                                </li>
-                            </ul>
-                            <a href="">PROCEED TO CHECKOUT</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
+                        
 
         <!-- Facility Section -->
         <section class="facility__section section" id="facility">
